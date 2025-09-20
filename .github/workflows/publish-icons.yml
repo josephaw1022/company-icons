@@ -19,4 +19,8 @@ jobs:
           scope: "@josephaw1022"
       - run: npm ci --workspaces
       - run: npm run build:icons
-      - run: cd packages/icons && npm publish --access restricted
+      - name: Publish
+        working-directory: packages/icons
+        run: npm publish --access restricted
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
