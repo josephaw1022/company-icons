@@ -1,3 +1,4 @@
+# .github/workflows/publish-icons.yml
 name: Publish @josephaw1022/company-icons-icons
 on:
   push:
@@ -12,7 +13,7 @@ jobs:
     env:
       NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -21,5 +22,8 @@ jobs:
           always-auth: true
       - run: npm ci --workspaces
       - run: npm run build:icons
+      - name: Configure npm auth for GH Packages
+        run: npm config set //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
       - working-directory: packages/icons
-        run: npm publish --access restricted
+        run: npm publish --access restricted --registry https://npm.pkg.github.com
+
