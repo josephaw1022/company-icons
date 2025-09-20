@@ -33,18 +33,18 @@ export class VtIcon extends LitElement {
     @property({ type: String }) name: IconName = "check" as IconName;
     @property({ type: String }) size: string = "1em";
     @property({ type: String }) color?: string;
-    @property({ type: String }) title?: string;
+    @property({ type: String }) label?: string;
 
     render() {
         const raw = icons[this.name] ?? "";
         const style = `--vt-icon-size:${this.size};${this.color ? `color:${this.color};` : ""}`;
 
-        const svg = this.title
+        const svg = this.label
             ? raw
                 .replace("<svg ", `<svg role="img" `)
                 .replace(
                     "</svg>",
-                    `<title>${escapeHtml(this.title)}</title></svg>`
+                    `<title>${escapeHtml(this.label)}</title></svg>`
                 )
             : raw
                 .replace("<svg ", `<svg aria-hidden="true" `);
