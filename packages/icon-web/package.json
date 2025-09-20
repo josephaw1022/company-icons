@@ -12,7 +12,9 @@
     }
   },
   "sideEffects": false,
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "prepublishOnly": "npm run build"
@@ -27,5 +29,9 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com",
     "access": "restricted"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josephaw1022/company-icons.git"
   }
 }
