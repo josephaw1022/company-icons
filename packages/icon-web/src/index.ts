@@ -1,2 +1,2 @@
-import "./vt-icon.js";
-export * from "./vt-icon.js";
+import "./company-icon.js";
+export * from "./company-icon.js";

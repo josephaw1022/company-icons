@@ -5,7 +5,7 @@ Public repo showing **how to build & publish private npm packages to GitHub Pack
 
 **Packages**
 - `@josephaw1022/company-icons-icons` – raw SVG strings
-- `@josephaw1022/company-icons-web` – `<vt-icon>` Web Component wrapper
+- `@josephaw1022/company-icons-web` – `<company-icon>` Web Component wrapper
 
 ---
 
@@ -54,7 +54,7 @@ npm i @josephaw1022/company-icons-web
 ```ts
 import { createApp } from 'vue';
 import App from './App.vue';
-import '@josephaw1022/company-icons-web'; // registers <vt-icon>
+import '@josephaw1022/company-icons-web'; // registers <company-icon>
 createApp(App).mount('#app');
 ```
 
@@ -63,7 +63,7 @@ createApp(App).mount('#app');
 ```vue
 <template>
   <button>
-    <vt-icon name="check" size="20px" style="margin-right:6px" />
+    <company-icon name="check" size="20px" style="margin-right:6px" />
     Save
   </button>
 </template>

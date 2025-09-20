@@ -4,7 +4,7 @@ import { icons } from "@josephaw1022/company-icons-icons";
 
 type IconName = keyof typeof icons;
 
-@customElement("vt-icon")
+@customElement("company-icon")
 export class VtIcon extends LitElement {
 
     static styles = css`
@@ -16,7 +16,7 @@ export class VtIcon extends LitElement {
 
   svg {
     /* sizing */
-    --icon-size: var(--vt-icon-size, 1em);
+    --icon-size: var(--company-icon-size, 1em);
     width: var(--icon-size);
     height: var(--icon-size);
 
@@ -37,7 +37,7 @@ export class VtIcon extends LitElement {
 
     render() {
         const raw = icons[this.name] ?? "";
-        const style = `--vt-icon-size:${this.size};${this.color ? `color:${this.color};` : ""}`;
+        const style = `--company-icon-size:${this.size};${this.color ? `color:${this.color};` : ""}`;
 
         const svg = this.label
             ? raw
@@ -66,6 +66,6 @@ function escapeHtml(s: string) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "vt-icon": VtIcon;
+    "company-icon": VtIcon;
   }
 }
