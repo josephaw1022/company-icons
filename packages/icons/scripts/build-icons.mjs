@@ -1,15 +1,23 @@
-// Build script: optimize /src/svgs and generate /src/index.ts
+// Build script: optimize /src/svgs and generate /src/index.ts (cwd-proof)
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { optimize } from 'svgo';
 
-const root = path.resolve(process.cwd(), 'packages/icons');
-const svgsDir = path.join(root, 'src', 'svgs');
-const outFile = path.join(root, 'src', 'index.ts');
+// Resolve package root from this file's location: .../packages/icons/scripts/*
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const pkgRoot = path.resolve(__dirname, '..');        // .../packages/icons
+const svgsDir = path.join(pkgRoot, 'src', 'svgs');
+const outFile = path.join(pkgRoot, 'src', 'index.ts');
 
-const files = (await fs.readdir(svgsDir)).filter(f => f.endsWith('.svg')).sort();
+// ensure svgs dir exists (won't throw if it already does)
+await fs.mkdir(svgsDir, { recursive: true });
+
+const files = (await fs.readdir(svgsDir))
+  .filter(f => f.toLowerCase().endsWith('.svg'))
+  .sort();
+
 const entries = [];
-
 for (const f of files) {
   const raw = await fs.readFile(path.join(svgsDir, f), 'utf8');
   const { data } = optimize(raw, {
@@ -20,7 +28,11 @@ for (const f of files) {
       { name: 'preset-default', params: { overrides: { removeViewBox: false } } }
     ]
   });
-  const svg = data.replace('<svg ', '<svg aria-hidden="true" ').replace(/\n/g, '').replace(/>\s+</g, '><').trim();
+  const svg = data
+    .replace('<svg ', '<svg aria-hidden="true" ')
+    .replace(/\n/g, '')
+    .replace(/>\s+</g, '><')
+    .trim();
   const name = f.replace(/\.svg$/i, '').replace(/[^a-z0-9_-]/gi, '');
   entries.push([name, svg]);
 }
@@ -36,4 +48,4 @@ ${map}
 export type IconName = ${typeUnion};
 `;
 await fs.writeFile(outFile, out, 'utf8');
-console.log(`[icons] Wrote ${path.relative(root, outFile)} with ${entries.length} icons.`);
+console.log(`[icons] Wrote ${path.relative(pkgRoot, outFile)} with ${entries.length} icons.`);
