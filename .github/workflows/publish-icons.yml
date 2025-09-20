@@ -17,10 +17,11 @@ jobs:
           node-version: 22
           registry-url: https://npm.pkg.github.com
           scope: "@josephaw1022"
+          always-auth: true
       - run: npm ci --workspaces
       - run: npm run build:icons
       - name: Publish
         working-directory: packages/icons
         run: npm publish --access restricted
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
