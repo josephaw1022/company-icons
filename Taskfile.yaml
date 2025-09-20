@@ -1,0 +1,16 @@
+
+
+
+version: '3'
+
+
+
+tasks:
+
+
+  icon-tag:
+    cmds: 
+      - git tag -d icons-v0.1.0 2>/dev/null || true
+      - git push origin :refs/tags/icons-v0.1.0 2>/dev/null || true
+      - git tag icons-v0.1.0
+      - git push origin icons-v0.1.0
