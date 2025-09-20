@@ -1,0 +1,17 @@
+{
+  "name": "company-icons",
+  "private": true,
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "build": "npm run build:icons && npm run build:web",
+    "build:icons": "npm run -w @josephaw1022/company-icons-icons build",
+    "build:web": "npm run -w @josephaw1022/company-icons-web build",
+    "test": "echo \"(add tests later)\"",
+    "lint": "echo \"(add lint later)\""
+  },
+  "packageManager": "npm@10",
+  "engines": {
+    "node": ">=22",
+    "npm": ">=10"
+  }
+}
