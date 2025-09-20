@@ -20,7 +20,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@josephaw1022/company-icons-icons": "0.1.0",
+    "@josephaw1022/company-icons-icons": "^0.1.0",
     "lit": "^2.7.0 || ^3.0.0"
   },
   "devDependencies": {
