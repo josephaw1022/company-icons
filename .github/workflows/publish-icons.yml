@@ -21,9 +21,5 @@ jobs:
           always-auth: true
       - run: npm ci --workspaces
       - run: npm run build:icons
-      # ensure the *runner's* npm sees the token; repo .npmrc is ignored in CI
-      - run: |
-          echo "@josephaw1022:registry=https://npm.pkg.github.com" >> ~/.npmrc
-          echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >> ~/.npmrc
       - working-directory: packages/icons
         run: npm publish --access restricted
