@@ -1,0 +1,23 @@
+name: Publish @josephaw1022/company-icons-web
+on:
+  push:
+    tags:
+      - "icon-web-v*"
+
+jobs:
+  publish-web:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://npm.pkg.github.com
+          scope: "@josephaw1022"
+      - run: npm ci --workspaces
+      - run: npm run build:icons
+      - run: npm run build:web
+      - run: cd packages/icon-web && npm publish --access restricted

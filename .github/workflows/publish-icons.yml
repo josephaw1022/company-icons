@@ -1,0 +1,22 @@
+name: Publish @josephaw1022/company-icons-icons
+on:
+  push:
+    tags:
+      - "icons-v*"
+
+jobs:
+  publish-icons:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://npm.pkg.github.com
+          scope: "@josephaw1022"
+      - run: npm ci --workspaces
+      - run: npm run build:icons
+      - run: cd packages/icons && npm publish --access restricted
