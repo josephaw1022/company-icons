@@ -25,6 +25,5 @@ jobs:
       - run: |
           echo "@josephaw1022:registry=https://npm.pkg.github.com" >> ~/.npmrc
           echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >> ~/.npmrc
-      - run: npm whoami --registry=https://npm.pkg.github.com
       - working-directory: packages/icons
         run: npm publish --access restricted
