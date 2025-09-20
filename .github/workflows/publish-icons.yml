@@ -23,8 +23,8 @@ jobs:
           always-auth: true
       - run: npm ci --workspaces
       - run: npm run build:icons
-      - name: Configure npm auth for GH Packages
-        run: npm config set //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
       - working-directory: packages/icons
         run: npm publish --access restricted --registry https://npm.pkg.github.com
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
