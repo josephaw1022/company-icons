@@ -1,8 +1,8 @@
 # Company Icons (local SVGs, Lit, private GH Packages)
 
 Two packages:
-- `@yourorg/icons`: raw SVGs + generated TypeScript map
-- `@yourorg/icon-web`: Lit-based `<vt-icon>` that renders icons from `@yourorg/icons`
+- `@josephaw1022/company-icons-icons`: raw SVGs + generated TypeScript map
+- `@josephaw1022/company-icons-web`: Lit-based `<vt-icon>` that renders icons from `@josephaw1022/company-icons-icons`
 
 ## Build
 ```bash

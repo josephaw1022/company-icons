@@ -1,6 +1,6 @@
 import { LitElement, html, css } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { icons } from "@yourorg/icons";
+import { icons } from "@josephaw1022/company-icons-icons";
 
 type IconName = keyof typeof icons;
 

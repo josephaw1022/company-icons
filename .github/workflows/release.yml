@@ -17,16 +17,16 @@ jobs:
         with:
           node-version: 22
           registry-url: https://npm.pkg.github.com
-          scope: "@yourorg"
+          scope: "@josephaw1022"
       - run: npm ci --workspaces
       - run: npm run build
-      - name: Publish @yourorg/icons
+      - name: Publish @josephaw1022/company-icons-icons
         if: startsWith(github.ref_name, 'icons-v')
         run: |
           cd packages/icons
           npm version ${GITHUB_REF_NAME#icons-v} --no-git-tag-version
           npm publish --access restricted
-      - name: Publish @yourorg/icon-web
+      - name: Publish @josephaw1022/company-icons-web
         if: startsWith(github.ref_name, 'icon-web-v')
         run: |
           cd packages/icon-web
