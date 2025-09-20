@@ -18,7 +18,7 @@ tasks:
 
   icon-web-tag:
     cmds:
-      - git tag -d icon-web-v0.1.0 2>/dev/null
+      - git tag -d icon-web-v0.1.0 2>/dev/null || true
       - git push origin :refs/tags/icon-web-v0.1.0 2>/dev/null || true
       - git tag icon-web-v0.1.0
       - git push origin icon-web-v0.1.0
