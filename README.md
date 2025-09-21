@@ -1,4 +1,4 @@
-# company-icons
+# universal-icon-kit
 
 Public repo showing how to **build & publish private npm packages to GitHub Packages**.
 
