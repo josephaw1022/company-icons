@@ -1,9 +1,18 @@
-import './App.css';
-const icons = ['check', 'x', 'alert'];
+import "./App.css";
+const icons = ["check", "x", "alert"];
 
 export default function App() {
   return (
     <main className="container">
+      <div className="app-badge" title="This is the React app">
+        <img
+          alt="React"
+          className="app-badge__logo"
+          src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
+        />
+        <span className="app-badge__text">React App</span>
+      </div>
+
       <h1>Company Icons Demo</h1>
 
       <section className="blurb">
@@ -14,21 +23,24 @@ export default function App() {
         </p>
 
         <p>
-          Because it’s private, authenticate with an <strong>environment variable</strong>
+          Because it’s private, authenticate with an{" "}
+          <strong>environment variable</strong>
           (no token stored in files).
         </p>
 
-        <pre className="code"><code>{`# one-time scope mapping (writes no secrets)
+        <pre className="code">
+          <code>{`# one-time scope mapping (writes no secrets)
 export NODE_AUTH_TOKEN=$(gh auth token)   # or a PAT with read:packages
 
 # install and import
 npm i @josephaw1022/company-icons-web
 # in main.jsx
-import '@josephaw1022/company-icons-web'`}</code></pre>
+import '@josephaw1022/company-icons-web'`}</code>
+        </pre>
       </section>
 
       <section className="row">
-        <company-icon name="check" size="20px" style={{ marginRight: '8px' }} />
+        <company-icon name="check" size="20px" style={{ marginRight: "8px" }} />
         <span>Save successful</span>
       </section>
 
@@ -38,7 +50,7 @@ import '@josephaw1022/company-icons-web'`}</code></pre>
           size="20px"
           color="tomato"
           label="Warning"
-          style={{ marginRight: '8px' }}
+          style={{ marginRight: "8px" }}
         />
         <span>Something needs your attention</span>
       </section>

@@ -52,7 +52,7 @@ h2 {
 
 
 
-/* full-viewport root */
+full-viewport root
 html, body, #root {
   height: 100%;
   width: 100%;
@@ -62,7 +62,33 @@ html, body, #root {
 
 #root {
   min-height: 100vh;
-  width: 100vw;
-  min-width: 100vw;
-  
+  min-width: 100vw;  
+}
+
+
+.app-badge {
+  position: relative;       /* no fixed corner placement */
+  margin: 20px auto;        /* centers horizontally */
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: rgba(245, 245, 245, 0.95);
+  border: 2px solid #e5e7eb;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.app-badge__logo {
+  height: 28px;
+  width: 28px;
+}
+
+.app-badge__text {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #111827;
 }

@@ -5,6 +5,15 @@ const icons = ["check", "x", "alert"];
 
 <template>
   <main class="container">
+    <div class="app-badge" title="This is the Vue app">
+      <img
+        alt="Vue"
+        class="app-badge__logo"
+        src="https://vuejs.org/images/logo.png"
+      />
+      <span class="app-badge__text">Vue App</span>
+    </div>
+
     <h1>Company Icons Demo</h1>
 
     <section class="blurb">
@@ -21,13 +30,13 @@ const icons = ["check", "x", "alert"];
       </p>
 
       <pre class="code"><code># one-time scope mapping (writes no secrets)
-      export NODE_AUTH_TOKEN=$(gh auth token)   # or a PAT with read:packages
+export NODE_AUTH_TOKEN=$(gh auth token)   # or a PAT with read:packages
 
-      # install and import
-      npm i @josephaw1022/company-icons-web
-      # in main.ts
-      import '@josephaw1022/company-icons-web'
-      </code></pre>
+# install and import
+npm i @josephaw1022/company-icons-web
+# in main.ts
+import '@josephaw1022/company-icons-web'
+</code></pre>
 
       <p>
         The icon component is a TypeScript library built with
@@ -89,6 +98,7 @@ h2 {
   border-radius: 8px;
   overflow-x: auto;
   font-size: 0.9rem;
+  text-align: left;
 }
 .row {
   display: flex;
@@ -111,5 +121,32 @@ h2 {
 }
 .name {
   margin-top: 6px;
+}
+
+.app-badge {
+  position: relative;
+  margin: 20px auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: rgba(245, 245, 245, 0.95);
+  border: 2px solid #e5e7eb;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.app-badge__logo {
+  height: 28px;
+  width: 28px;
+}
+
+.app-badge__text {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #111827;
 }
 </style>
