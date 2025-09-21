@@ -25,7 +25,7 @@ Workflows:
 
 Both examples consume the **private** packages. They already include a project `.npmrc`; export your token and run.
 
-* **Vue (Vite)** → `examples/vue-vite/README.md`
-* **React (Vite)** → `examples/react-vite/`
+* **Vue (Vite)** → `examples/vuejs-app`
+* **React (Vite)** → `examples/reactjs-app`
 
 > The run instructions in the **Vue** example README apply to the **React** example as well.
