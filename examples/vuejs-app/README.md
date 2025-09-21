@@ -2,7 +2,7 @@
 
 ## Run (macOS/Linux)
 ```bash
-export NPM_TOKEN="$(gh auth token)"
+export NODE_AUTH_TOKEN="$(gh auth token)"
 npm install
 npm run dev
 ````
@@ -10,7 +10,7 @@ npm run dev
 ## Run (Windows PowerShell)
 
 ```powershell
-$env:NPM_TOKEN = (gh auth token)
+$env:NODE_AUTH_TOKEN = (gh auth token)
 npm install
 npm run dev
 ```

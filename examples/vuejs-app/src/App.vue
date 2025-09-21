@@ -17,21 +17,17 @@ const icons = ["check", "x", "alert"];
       <p>
         Because it’s private, authenticate with an
         <strong>environment variable</strong>
-        (no token stored in files). Map the scope to GitHub Packages, then set
-        <code>NODE_AUTH_TOKEN</code> when installing:
+        (no token stored in files).
       </p>
 
       <pre class="code"><code># one-time scope mapping (writes no secrets)
-npm config set @josephaw1022:registry https://npm.pkg.github.com
-npm config set always-auth true
+      export NODE_AUTH_TOKEN=$(gh auth token)   # or a PAT with read:packages
 
-# per shell (or CI): provide the token via env var
-export NODE_AUTH_TOKEN=$(gh auth token)   # or a PAT with read:packages
-
-# install and import
-npm i @josephaw1022/company-icons-web
-# in main.ts
-import '@josephaw1022/company-icons-web'</code></pre>
+      # install and import
+      npm i @josephaw1022/company-icons-web
+      # in main.ts
+      import '@josephaw1022/company-icons-web'
+      </code></pre>
 
       <p>
         The icon component is a TypeScript library built with
